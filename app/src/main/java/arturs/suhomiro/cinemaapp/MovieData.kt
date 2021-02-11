@@ -1,11 +1,16 @@
 package arturs.suhomiro.cinemaapp
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class MovieData(
         val movie: String,
         val year: Int,
         val rate: Double,
         val img: Int
-    )
+    ): Parcelable
+
 fun getNowPlayMovie(): List<MovieData> {
     return listOf(
     MovieData("Batman Begins", 2005, 10.0, R.drawable.dark_knight),

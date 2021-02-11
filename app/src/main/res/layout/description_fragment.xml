@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/descriptionConstraint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+
+                <TextView
+                    android:id="@+id/movieDiscriptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Movie" />
+
+                <TextView
+                    android:id="@+id/movieItalicDicriptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@android:color/tertiary_text_dark"
+                    android:textStyle="italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/movieDiscriptionTextView"
+                    app:layout_constraintVertical_bias="0.714"
+                    tools:text="Movie" />
+
+                <TextView
+                    android:id="@+id/scopeSymbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/scope1"
+                    android:textColor="@android:color/tertiary_text_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/movieItalicDicriptionTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/movieDiscriptionTextView"
+                    app:layout_constraintVertical_bias="0.555" />
+
+                <TextView
+                    android:id="@+id/yearDiscriptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/tertiary_text_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/scopeSymbol"
+                    app:layout_constraintTop_toBottomOf="@+id/movieDiscriptionTextView"
+                    app:layout_constraintVertical_bias="0.555"
+                    tools:text="year" />
+
+                <TextView
+                    android:id="@+id/scopeSymbolTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/scope2"
+                    android:textColor="@android:color/tertiary_text_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/yearDiscriptionTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/movieDiscriptionTextView"
+                    app:layout_constraintVertical_bias="0.555" />
+
+                <com.like.LikeButton
+                    android:id="@+id/star_button"
+                    android:layout_width="54dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    app:icon_size="25dp"
+                    app:icon_type="heart"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/dicriptionImageView"
+                    android:layout_width="200dp"
+                    android:layout_height="300dp"
+                    android:layout_marginStart="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/dark_knight" />
+
+                <TextView
+                    android:id="@+id/genreTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Genres:"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/genreDisriptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@+id/genreTextView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Actions, Comedy,\n Drama" />
+
+                <TextView
+                    android:id="@+id/timeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/time"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/genreDisriptionTextView" />
+
+                <TextView
+                    android:id="@+id/timeDiscriptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/timeTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/genreDisriptionTextView"
+                    tools:text="117" />
+
+                <TextView
+                    android:id="@+id/minTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/min"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/timeDiscriptionTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/genreDisriptionTextView" />
+
+                <TextView
+                    android:id="@+id/budgetTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/budget"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/timeTextView" />
+
+                <TextView
+                    android:id="@+id/budgetDiscriptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/budgetTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/timeDiscriptionTextView"
+                    tools:text="90000000" />
+
+                <ImageView
+                    android:id="@+id/dollarBudgetImageView"
+                    android:layout_width="26dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/budgetDiscriptionTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/minTextView"
+                    app:srcCompat="@drawable/dollars_yellow" />
+
+                <TextView
+                    android:id="@+id/revenueTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/revenue"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/budgetTextView" />
+
+                <TextView
+                    android:id="@+id/revenueDiscriptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/revenueTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/budgetDiscriptionTextView"
+                    tools:text="340000582" />
+
+                <ImageView
+                    android:id="@+id/dollarRevenueImageView"
+                    android:layout_width="26dp"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/revenueDiscriptionTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/dollarBudgetImageView"
+                    app:srcCompat="@drawable/dollars_green" />
+
+                <TextView
+                    android:id="@+id/releaseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/release_data"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/revenueTextView" />
+
+                <TextView
+                    android:id="@+id/dataReleaseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.031"
+                    app:layout_constraintStart_toEndOf="@+id/releaseTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/revenueDiscriptionTextView"
+                    tools:text="01.02.2005" />
+
+                <TextView
+                    android:id="@+id/rateTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/rate"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/releaseTextView" />
+
+                <TextView
+                    android:id="@+id/rateDiscriptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@+id/rateTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/releaseTextView"
+                    tools:text="7.6" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="23dp"
+                    android:layout_height="16dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/rateDiscriptionTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/dataReleaseTextView"
+                    app:srcCompat="@android:drawable/btn_star_big_on" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/aboutDisriptionTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/tertiary_text_dark"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/cinematography_is_the_art_of_photography_and_visual_storytelling_in_a_motion_picture_or_television_show_cinematography_comprises_all_on_screen_visual_elements_including_lighting_framing_composition_camera_motion_camera_angles_film_selection_lens_choices_depth_of_field_zoom_focus_color_exposure_and_filtration" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
