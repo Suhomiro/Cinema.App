@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import arturs.suhomiro.cinemaapp.*
+import arturs.suhomiro.cinemaapp.ui.discription.DescriptionFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
@@ -16,9 +17,57 @@ class HomeFragment : Fragment() {
 
 
     private lateinit var viewModel: HomeViewModel
-    private val adapterNowPlay = RecycleAdapterHome()
-    private val adapterComingSoon = RecycleAdapterHome()
-    private val adapterSport = RecycleAdapterHome()
+
+
+
+
+    private val adapterNowPlay = RecycleAdapterHome(object : OnViewOnClickListener {
+        override fun onItemViewClick(movieData: MovieData) {
+            val manager = activity?.supportFragmentManager
+
+            if (manager != null) {
+                val bundle = Bundle()
+                bundle.putParcelable(DescriptionFragment.BUNDLE_EXTRA, movieData)
+                manager.beginTransaction()
+                    .add(R.id.conteinerDiscription, DescriptionFragment.newInstance(bundle))
+                    .addToBackStack("")
+                    .commitAllowingStateLoss()
+            }
+        }
+
+    })
+
+    private val adapterComingSoon = RecycleAdapterHome(object : OnViewOnClickListener {
+        override fun onItemViewClick(movieData: MovieData) {
+            val manager = activity?.supportFragmentManager
+
+            if (manager != null) {
+                val bundle = Bundle()
+                bundle.putParcelable(DescriptionFragment.BUNDLE_EXTRA, movieData)
+                manager.beginTransaction()
+                    .add(R.id.conteinerDiscription, DescriptionFragment.newInstance(bundle))
+                    .addToBackStack("")
+                    .commitAllowingStateLoss()
+            }
+        }
+
+
+    })
+
+    private val adapterSport = RecycleAdapterHome(object : OnViewOnClickListener {
+        override fun onItemViewClick(movieData: MovieData) {
+            val manager = activity?.supportFragmentManager
+
+            if (manager != null) {
+                val bundle = Bundle()
+                bundle.putParcelable(DescriptionFragment.BUNDLE_EXTRA, movieData)
+                manager.beginTransaction()
+                    .replace(R.id.conteinerDiscription, DescriptionFragment.newInstance(bundle))
+                        .addToBackStack("")
+                    .commitAllowingStateLoss()
+            }
+        }
+    })
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,5 +103,7 @@ class HomeFragment : Fragment() {
             adapterComingSoon.setMovie(getComingSoon())
             adapterSport.setMovie(getSportMovie())
         }
-
+    companion object {
+        fun newInstance() = HomeFragment()
+    }
     }

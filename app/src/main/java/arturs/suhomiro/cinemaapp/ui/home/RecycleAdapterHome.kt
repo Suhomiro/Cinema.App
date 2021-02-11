@@ -5,11 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import arturs.suhomiro.cinemaapp.MovieData
+import arturs.suhomiro.cinemaapp.OnViewOnClickListener
 import arturs.suhomiro.cinemaapp.R
 import kotlinx.android.synthetic.main.item_recycle_view.view.*
 
 
-class RecycleAdapterHome: RecyclerView.Adapter<RecycleAdapterHome.MainViewHolder>() {
+class RecycleAdapterHome(var onViewOnClickListener: OnViewOnClickListener?): RecyclerView.Adapter<RecycleAdapterHome.MainViewHolder>() {
 
 
 
@@ -18,6 +19,10 @@ class RecycleAdapterHome: RecyclerView.Adapter<RecycleAdapterHome.MainViewHolder
     fun setMovie(data: List<MovieData>) {
         movieData = data
         notifyDataSetChanged()
+    }
+
+    fun removeListener() {
+        onViewOnClickListener = null
     }
 
 
@@ -39,6 +44,8 @@ class RecycleAdapterHome: RecyclerView.Adapter<RecycleAdapterHome.MainViewHolder
             itemView.rateTextView.text = movieData.rate.toString()
             itemView.yearTextView.text = movieData.year.toString()
             itemView.cinemaImageView.setImageResource(movieData.img)
+            itemView.setOnClickListener {
+                onViewOnClickListener?.onItemViewClick(movieData) }
         }
 
     }

@@ -25,7 +25,8 @@
             android:id="@+id/nowPlayRecycleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <TextView
             android:id="@+id/comingSoonTextView"
@@ -39,7 +40,8 @@
             android:id="@+id/comingSoonRecycleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <TextView
             android:id="@+id/textView3"
@@ -53,6 +55,7 @@
             android:id="@+id/sportRecycleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
     </LinearLayout>
 </ScrollView>
