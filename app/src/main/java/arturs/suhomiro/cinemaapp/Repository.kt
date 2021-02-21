@@ -1,15 +1,18 @@
 package arturs.suhomiro.cinemaapp
 
-class Repository: RepositoryInterface {
-    override fun getMovieFromNowPlay(): List<MovieData> {
-        return getNowPlayMovie()
+import retrofit2.Callback
+
+class Repository(private val remoteDataSource: RemoteDataSource): RepositoryInterface {
+    override fun getMovieDetailsFromNowPlaying(callback: Callback<MovieDTO>) {
+        remoteDataSource.getMovieDetailsNowPlay(callback)
     }
 
-    override fun getMovieFromComingSoon(): List<MovieData> {
+}
+
+   /* override fun getMovieFromComingSoon(): List<MovieDTO> {
         return getComingSoon()
     }
 
-    override fun getMovieFromSport(): List<MovieData> {
+    override fun getMovieFromSport(): List<MovieDTO> {
         return getSportMovie()
-    }
-}
+    }*/
