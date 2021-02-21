@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import arturs.suhomiro.cinemaapp.MovieData
 import arturs.suhomiro.cinemaapp.R
 import kotlinx.android.synthetic.main.description_fragment.*
 
@@ -21,7 +20,7 @@ class DescriptionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val cinema = arguments?.getParcelable<MovieData>(BUNDLE_EXTRA)
+        /*val cinema = arguments?.getParcelable<MovieData>(BUNDLE_EXTRA)
         cinema?.let { cinema ->
             val movieData = cinema
             movieDiscriptionTextView.text = cinema.movie
@@ -29,7 +28,7 @@ class DescriptionFragment : Fragment() {
             yearDiscriptionTextView.text = cinema.year.toString()
             dicriptionImageView.setImageResource(cinema.img)
             rateDiscriptionTextView.text = cinema.rate.toString()
-        }
+        }*/
     }
     companion object {
         const val BUNDLE_EXTRA = "weather"

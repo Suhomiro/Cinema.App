@@ -1,7 +1,11 @@
 package arturs.suhomiro.cinemaapp
 
+import retrofit2.Callback
+
 interface RepositoryInterface {
-    fun getMovieFromNowPlay(): List<MovieData>
-    fun getMovieFromComingSoon(): List<MovieData>
-    fun getMovieFromSport(): List<MovieData>
+    fun getMovieDetailsFromNowPlaying(
+            callback: Callback<MovieDTO>
+    )
+    //fun getMovieFromComingSoon(): List<MovieDTO>
+   // fun getMovieFromSport(): List<MovieDTO>
 }

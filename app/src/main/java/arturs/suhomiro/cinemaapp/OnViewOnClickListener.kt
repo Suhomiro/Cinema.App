@@ -1,5 +1,5 @@
 package arturs.suhomiro.cinemaapp
 
 interface OnViewOnClickListener {
-    fun onItemViewClick(movieData: MovieData)
+    fun onItemViewClick(movieInfo: MovieDTO)
 }
