@@ -3,11 +3,10 @@ package arturs.suhomiro.cinemaapp.ui.home
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.ScaleAnimation
+import android.view.animation.AlphaAnimation
 import androidx.recyclerview.widget.RecyclerView
-import arturs.suhomiro.cinemaapp.MovieDTO
-import arturs.suhomiro.cinemaapp.MovieInfo
+import arturs.suhomiro.cinemaapp.IMAGE_REQUEST
+import arturs.suhomiro.cinemaapp.repository.MovieInfo
 import arturs.suhomiro.cinemaapp.OnViewOnClickListener
 import arturs.suhomiro.cinemaapp.R
 import com.squareup.picasso.Picasso
@@ -17,10 +16,12 @@ import kotlinx.android.synthetic.main.item_recycle_view.view.*
 class RecycleAdapterHome(var onViewOnClickListener: OnViewOnClickListener?): RecyclerView.Adapter<RecycleAdapterHome.MainViewHolder>() {
 
 
-    private var movieInfoData : List<MovieDTO> = listOf()
+    private var movieInfoData : List<MovieInfo> = listOf()
 
-    fun setMovie(movieDTO: MovieDTO) {
-        movieInfoData = listOf(movieDTO)
+    fun setMovie(movieInfo: List<MovieInfo>?) {
+        if (movieInfo != null) {
+            movieInfoData = movieInfo
+        }
         notifyDataSetChanged()
     }
 
@@ -46,10 +47,7 @@ class RecycleAdapterHome(var onViewOnClickListener: OnViewOnClickListener?): Rec
     }
 
     private fun setFadeAnimation(view: View) {
-        val anim = ScaleAnimation(
-            0.0f, 1.0f, 0.0f, 1.0f,
-            Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f
-        )
+        val anim = AlphaAnimation(0.0f, 1.0f)
         anim.duration = 100
         view.startAnimation(anim)
 
@@ -61,11 +59,11 @@ class RecycleAdapterHome(var onViewOnClickListener: OnViewOnClickListener?): Rec
     }
 
     inner class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun renderBind(movieInfo: MovieDTO){
-            itemView.yearTextView.text = MovieInfo().releaseDate
-            itemView.rateTextView.text = MovieInfo().voteAverage.toString()
-            itemView.cinemaTextView.text = MovieInfo().title.toString()
-            Picasso.get().load(MovieInfo().posterPath).fit().centerInside().into(itemView.cinemaImageView)
+        fun renderBind(movieInfo: MovieInfo){
+            itemView.yearTextView.text = movieInfo.releaseDate
+            itemView.rateTextView.text = movieInfo.voteAverage.toString()
+            itemView.cinemaTextView.text = movieInfo.title
+            Picasso.get().load(IMAGE_REQUEST + movieInfo.posterPath).fit().centerInside().into(itemView.cinemaImageView)
             itemView.setOnClickListener { onViewOnClickListener?.onItemViewClick(movieInfo) }
         }
 

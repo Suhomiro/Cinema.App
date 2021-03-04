@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/itemCardViewLayout"
-    android:layout_width="150dp"
-    android:layout_height="220dp"
+    android:layout_width="180dp"
+    android:layout_height="300dp"
     android:layout_margin="3dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,38 +13,24 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cardConstraintLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
+            android:layout_width="0dp"
+            android:layout_height="280dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            >
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/cinemaImageView"
                 android:layout_width="0dp"
-                android:layout_height="140dp"
-                android:layout_marginBottom="12dp"
+                android:layout_height="220dp"
                 android:contentDescription="TODO"
-                app:layout_constraintBottom_toTopOf="@+id/cinemaTextView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
-
-            <TextView
-                android:id="@+id/cinemaTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_weight="1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cinemaImageView"
-                tools:text="Cinema" />
 
             <TextView
                 android:id="@+id/yearTextView"
@@ -54,21 +40,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cinemaTextView"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintVertical_bias="0.981"
                 tools:text="Year" />
 
             <ImageView
                 android:id="@+id/rateImageView"
                 android:layout_width="21dp"
                 android:layout_height="18dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/rateTextView"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/yearTextView"
                 app:layout_constraintTop_toBottomOf="@+id/cinemaTextView"
-                app:layout_constraintVertical_bias="0.9"
+                app:layout_constraintVertical_bias="0.954"
                 app:srcCompat="@android:drawable/btn_star_big_on" />
 
             <TextView
@@ -77,12 +59,22 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/rateImageView"
-                app:layout_constraintTop_toBottomOf="@+id/cinemaTextView"
-                app:layout_constraintVertical_bias="1.0"
                 tools:text="7.0" />
 
+            <TextView
+                android:id="@+id/cinemaTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cinemaImageView"
+                tools:text="Cinema" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

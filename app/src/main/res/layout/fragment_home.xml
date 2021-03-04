@@ -11,22 +11,24 @@
         android:id="@+id/scrollLayoutMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layoutAnimation="@anim/layout_left_to_right">
 
         <TextView
             android:id="@+id/nowPlayTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Now Playing"
-            android:textSize="40sp"/>
+            android:text="@string/now_playing"
+            android:textSize="30sp"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/nowPlayRecycleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layoutAnimation="@anim/layout_left_to_right"
+            android:layoutAnimation="@anim/layout_right_to_left"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <TextView
@@ -34,31 +36,51 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Coming Soon"
-            android:textSize="40sp"/>
+            android:text="@string/upcoming"
+            android:textSize="30sp"
+            android:layoutAnimation="@anim/layout_left_to_right"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/comingSoonRecycleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layoutAnimation="@anim/layout_left_to_right"
+            android:layoutAnimation="@anim/layout_right_to_left"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/topRatedTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Sports"
-            android:textSize="40sp"/>
+            android:text="@string/top_rated"
+            android:textSize="30sp"
+            android:layoutAnimation="@anim/layout_left_to_right"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/sportRecycleView"
+            android:id="@+id/topRatedRecycleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layoutAnimation="@anim/layout_left_to_right"
+            android:layoutAnimation="@anim/layout_right_to_left"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+        <TextView
+            android:id="@+id/popularTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/popular"
+            android:textSize="30sp"
+            android:layoutAnimation="@anim/layout_left_to_right"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/popularRecycleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layoutAnimation="@anim/layout_right_to_left"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
     </LinearLayout>
 </ScrollView>

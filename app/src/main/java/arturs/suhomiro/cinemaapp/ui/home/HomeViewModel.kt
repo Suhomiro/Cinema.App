@@ -2,26 +2,76 @@ package arturs.suhomiro.cinemaapp.ui.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import arturs.suhomiro.cinemaapp.*
+import arturs.suhomiro.cinemaapp.repository.MovieDTO
+import arturs.suhomiro.cinemaapp.repository.RemoteDataSource
+import arturs.suhomiro.cinemaapp.repository.Repository
 
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-private const val SERVER_ERROR = "Ошибка сервера"
-private const val REQUEST_ERROR = "Ошибка запроса на сервер"
-private const val CORRUPTED_DATA = "Неполные данные"
-
 class HomeViewModel (
-    private val detailsLiveData: MutableLiveData<MovieDTO> = MutableLiveData(),
-    private val detailsRepositoryImpl: Repository = Repository(RemoteDataSource())
+        private val detailsLiveDataNowPlaying: MutableLiveData<MovieDTO> = MutableLiveData(),
+        private val detailsLiveDataComingSoon: MutableLiveData<MovieDTO> = MutableLiveData(),
+        private val detailsLiveDataTopRated: MutableLiveData<MovieDTO> = MutableLiveData(),
+        private val detailsLiveDataPopular: MutableLiveData<MovieDTO> = MutableLiveData(),
+        private val nowPlaying: Repository = Repository(RemoteDataSource()),
+        private val topRated: Repository = Repository(RemoteDataSource()),
+        private val popular: Repository = Repository(RemoteDataSource()),
+        private val comingSoon: Repository = Repository(RemoteDataSource())
 ) : ViewModel() {
-    private val callBack = object :
+
+    private val callBackNowPlaying = object :
             Callback<MovieDTO> {
 
         override fun onResponse(call: Call<MovieDTO>, response: Response<MovieDTO>) {
             val serverResponse: MovieDTO? = response.body()
-            detailsLiveData.postValue(
+            detailsLiveDataNowPlaying.postValue(
+                    serverResponse
+            )
+        }
+
+        override fun onFailure(call: Call<MovieDTO>, t: Throwable) {
+            TODO("Not yet implemented")
+        }
+    }
+
+    private val callBackComingSoon = object :
+            Callback<MovieDTO> {
+
+        override fun onResponse(call: Call<MovieDTO>, response: Response<MovieDTO>) {
+            val serverResponse: MovieDTO? = response.body()
+            detailsLiveDataComingSoon.postValue(
+                    serverResponse
+            )
+        }
+
+        override fun onFailure(call: Call<MovieDTO>, t: Throwable) {
+            TODO("Not yet implemented")
+        }
+    }
+
+    private val callBackTopRated = object :
+            Callback<MovieDTO> {
+
+        override fun onResponse(call: Call<MovieDTO>, response: Response<MovieDTO>) {
+            val serverResponse: MovieDTO? = response.body()
+            detailsLiveDataTopRated.postValue(
+                    serverResponse
+            )
+        }
+
+        override fun onFailure(call: Call<MovieDTO>, t: Throwable) {
+            TODO("Not yet implemented")
+        }
+    }
+
+    private val callBackPopular = object :
+            Callback<MovieDTO> {
+
+        override fun onResponse(call: Call<MovieDTO>, response: Response<MovieDTO>) {
+            val serverResponse: MovieDTO? = response.body()
+            detailsLiveDataPopular.postValue(
                     serverResponse
             )
         }
@@ -32,20 +82,21 @@ class HomeViewModel (
     }
 
 
-        fun getLiveData() = detailsLiveData
+        fun getLiveDataNowPlaying() = detailsLiveDataNowPlaying
+        fun getLiveDataComingSoon() = detailsLiveDataComingSoon
+        fun getLiveDataTopRated() = detailsLiveDataTopRated
+        fun getLiveDataPopular() = detailsLiveDataPopular
 
-        fun getWeatherFromRemoteSource() {
-
-            detailsRepositoryImpl.getMovieDetailsFromNowPlaying(callBack)
+        fun getNowPlayingMovie() {
+            nowPlaying.getMovieFromNowPlaying(callBackNowPlaying)
         }
-
-
-     //   @Suppress("NullChecksToSafeCall")
-       // private fun getCheckedResponse(serverResponse: MovieInfo?): ErrorCheck {
-
-           // return if (serverResponse?.posterPath == null || serverResponse.releaseDate == null || serverResponse.voteAverage == null || serverResponse.title == null) {
-               // ErrorCheck.Error(Throwable(CORRUPTED_DATA))
-           // } else {
-            //}
-        //}
+        fun getComingSoonMovie(){
+            comingSoon.getMovieFromComingSoon(callBackComingSoon)
+        }
+        fun getTopRatedMovie(){
+            topRated.getMovieFromTopRated(callBackTopRated)
+        }
+        fun getPopularMovie(){
+            popular.getMovieFromPopular(callBackPopular)
+        }
     }

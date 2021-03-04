@@ -1,9 +1,12 @@
-package arturs.suhomiro.cinemaapp
+package arturs.suhomiro.cinemaapp.repository
 
+import android.os.Parcelable
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
- class MovieInfo {
+@Parcelize
+ class MovieInfo(): Parcelable {
      @SerializedName("adult")
      @Expose
      var adult: Boolean? = null

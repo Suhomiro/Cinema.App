@@ -8,6 +8,7 @@
     android:background="@color/white">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,22 +19,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layoutAnimation="@anim/layout_right_to_left"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp">
+                android:layout_height="100dp">
 
                 <TextView
                     android:id="@+id/movieDiscriptionTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="5dp"
-                    android:textColor="@color/black"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="2dp"
                     android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.296"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
                     tools:text="Movie" />
 
                 <TextView
@@ -41,259 +45,410 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="4dp"
                     android:textColor="@android:color/tertiary_text_dark"
                     android:textStyle="italic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/movieDiscriptionTextView"
-                    app:layout_constraintVertical_bias="0.714"
+                    app:layout_constraintVertical_bias="0.0"
                     tools:text="Movie" />
 
                 <TextView
                     android:id="@+id/scopeSymbol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
                     android:text="@string/scope1"
                     android:textColor="@android:color/tertiary_text_dark"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/movieItalicDicriptionTextView"
                     app:layout_constraintTop_toBottomOf="@+id/movieDiscriptionTextView"
-                    app:layout_constraintVertical_bias="0.555" />
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/yearDiscriptionTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="4dp"
                     android:textColor="@android:color/tertiary_text_dark"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/scopeSymbol"
                     app:layout_constraintTop_toBottomOf="@+id/movieDiscriptionTextView"
-                    app:layout_constraintVertical_bias="0.555"
+                    app:layout_constraintVertical_bias="0.0"
                     tools:text="year" />
 
                 <TextView
                     android:id="@+id/scopeSymbolTwo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="4dp"
                     android:text="@string/scope2"
                     android:textColor="@android:color/tertiary_text_dark"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/yearDiscriptionTextView"
                     app:layout_constraintTop_toBottomOf="@+id/movieDiscriptionTextView"
-                    app:layout_constraintVertical_bias="0.555" />
+                    app:layout_constraintVertical_bias="0.0" />
 
-                <com.like.LikeButton
-                    android:id="@+id/star_button"
-                    android:layout_width="54dp"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    app:icon_size="25dp"
-                    app:icon_type="heart"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
-                    tools:ignore="MissingConstraints" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <ImageView
                     android:id="@+id/dicriptionImageView"
                     android:layout_width="200dp"
-                    android:layout_height="300dp"
-                    android:layout_marginStart="5dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintBottom_toTopOf="@+id/star_button_note"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/dark_knight" />
 
-                <TextView
-                    android:id="@+id/genreTextView"
-                    android:layout_width="wrap_content"
+                <com.like.LikeButton
+                    android:id="@+id/star_button_note"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="2dp"
+                    app:icon_size="25dp"
+                    app:icon_type="heart"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/dicriptionImageView"
+                    tools:ignore="MissingConstraints" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:text="Genres:"
-                    android:textColor="@color/black"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/layou_designe"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.531"
                     app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/genreTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="@string/genres"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.503"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/genreDisriptionTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:textColor="@color/black"
+                    android:layout_marginTop="2dp"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintStart_toEndOf="@+id/genreTextView"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintHorizontal_bias="0.503"
+                    app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
                     tools:text="Actions, Comedy,\n Drama" />
 
-                <TextView
-                    android:id="@+id/timeTextView"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout3"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/time"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
-                    app:layout_constraintTop_toBottomOf="@+id/genreDisriptionTextView" />
-
-                <TextView
-                    android:id="@+id/timeDiscriptionTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toEndOf="@+id/timeTextView"
-                    app:layout_constraintTop_toBottomOf="@+id/genreDisriptionTextView"
-                    tools:text="117" />
-
-                <TextView
-                    android:id="@+id/minTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/min"
-                    android:textColor="@color/black"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/layou_designe"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/timeDiscriptionTextView"
-                    app:layout_constraintTop_toBottomOf="@+id/genreDisriptionTextView" />
-
-                <TextView
-                    android:id="@+id/budgetTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/budget"
-                    android:textColor="@color/black"
+                    app:layout_constraintHorizontal_bias="0.544"
                     app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
-                    app:layout_constraintTop_toBottomOf="@+id/timeTextView" />
+                    app:layout_constraintTop_toBottomOf="@+id/genreDisriptionTextView">
+
+                    <TextView
+                        android:id="@+id/timeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="@string/original_title"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
-                    android:id="@+id/budgetDiscriptionTextView"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/origTitleDiscriptionTextView"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toEndOf="@+id/budgetTextView"
-                    app:layout_constraintTop_toBottomOf="@+id/timeDiscriptionTextView"
-                    tools:text="90000000" />
-
-                <ImageView
-                    android:id="@+id/dollarBudgetImageView"
-                    android:layout_width="26dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="2dp"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/budgetDiscriptionTextView"
-                    app:layout_constraintTop_toBottomOf="@+id/minTextView"
-                    app:srcCompat="@drawable/dollars_yellow" />
-
-                <TextView
-                    android:id="@+id/revenueTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/revenue"
-                    android:textColor="@color/black"
+                    app:layout_constraintHorizontal_bias="0.508"
                     app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
-                    app:layout_constraintTop_toBottomOf="@+id/budgetTextView" />
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+                    tools:text="Movie" />
 
-                <TextView
-                    android:id="@+id/revenueDiscriptionTextView"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout4"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toEndOf="@+id/revenueTextView"
-                    app:layout_constraintTop_toBottomOf="@+id/budgetDiscriptionTextView"
-                    tools:text="340000582" />
-
-                <ImageView
-                    android:id="@+id/dollarRevenueImageView"
-                    android:layout_width="26dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/layou_designe"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/revenueDiscriptionTextView"
-                    app:layout_constraintTop_toBottomOf="@+id/dollarBudgetImageView"
-                    app:srcCompat="@drawable/dollars_green" />
+                    app:layout_constraintHorizontal_bias="0.561"
+                    app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/origTitleDiscriptionTextView">
+
+                    <TextView
+                        android:id="@+id/budgetTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="@string/original_language"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
-                    android:id="@+id/releaseTextView"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/languageDiscriptionTextView"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/release_data"
-                    android:textColor="@color/black"
+                    android:layout_marginTop="2dp"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.508"
                     app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
-                    app:layout_constraintTop_toBottomOf="@+id/revenueTextView" />
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
+                    tools:text="Japan" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/layou_designe"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.504"
+                    app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/languageDiscriptionTextView"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <TextView
+                        android:id="@+id/releaseTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="@string/release_data"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/dataReleaseTextView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/black"
+                    android:layout_marginTop="2dp"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.031"
-                    app:layout_constraintStart_toEndOf="@+id/releaseTextView"
-                    app:layout_constraintTop_toBottomOf="@+id/revenueDiscriptionTextView"
+                    app:layout_constraintHorizontal_bias="0.535"
+                    app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
                     tools:text="01.02.2005" />
 
-                <TextView
-                    android:id="@+id/rateTextView"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout6"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/rate"
-                    android:textColor="@color/black"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/layou_designe"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
-                    app:layout_constraintTop_toBottomOf="@+id/releaseTextView" />
+                    app:layout_constraintTop_toBottomOf="@+id/dataReleaseTextView">
+
+                    <TextView
+                        android:id="@+id/populatiryTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="@string/popularity"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/popularityDiscriptionTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout6"
+                    tools:text="520" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/layou_designe"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/popularityDiscriptionTextView">
+
+                    <TextView
+                        android:id="@+id/rateTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="@string/rate"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/textView3"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.75" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="@string/slash"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/rateCountTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="@string/vote"
+                        android:textStyle="normal|bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/textView3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/rateDiscriptionTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginTop="10dp"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toEndOf="@+id/rateTextView"
-                    app:layout_constraintTop_toBottomOf="@+id/releaseTextView"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView5"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
+                    app:layout_constraintVertical_bias="0.0"
                     tools:text="7.6" />
 
                 <ImageView
                     android:id="@+id/imageView5"
                     android:layout_width="23dp"
                     android:layout_height="16dp"
-                    android:layout_marginTop="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/rateDiscriptionTextView"
-                    app:layout_constraintTop_toBottomOf="@+id/dataReleaseTextView"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="2dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/dicriptionImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
+                    app:layout_constraintVertical_bias="0.05"
                     app:srcCompat="@android:drawable/btn_star_big_on" />
+
+                <TextView
+                    android:id="@+id/rateCountDiscription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="16dp"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.878"
+                    app:layout_constraintStart_toEndOf="@+id/rateDiscriptionTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
+                    tools:text="400" />
+
+                <ImageButton
+                    android:id="@+id/noteAddImageButton"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/btn_designe_activate"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/star_button_note"
+                    app:layout_constraintTop_toBottomOf="@+id/dicriptionImageView"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/ic_note_alt" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -306,7 +461,6 @@
                     android:id="@+id/aboutDisriptionTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/tertiary_text_dark"
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="5dp"
@@ -316,5 +470,17 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/noteConteiner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layoutAnimation="@anim/layout_right_to_left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/scrollView2">
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

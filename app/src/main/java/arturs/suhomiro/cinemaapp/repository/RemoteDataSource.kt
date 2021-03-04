@@ -1,5 +1,6 @@
-package arturs.suhomiro.cinemaapp
+package arturs.suhomiro.cinemaapp.repository
 
+import arturs.suhomiro.cinemaapp.MOVIE_API_KEY
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -10,9 +11,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
 class RemoteDataSource {
-    // private val language = "en-US"
-    private val language = "ru-RU"
-    private val page = 1
+    private val language = "en-US"
+   // private val language = "ru-RU"
+    private val pageOne = 1
+
     private val movieApi = Retrofit.Builder()
         .baseUrl("https://api.themoviedb.org/3/movie/")
         .addConverterFactory(
@@ -24,7 +26,16 @@ class RemoteDataSource {
         .build().create(MovieAPI::class.java)
 
     fun getMovieDetailsNowPlay(callback: Callback<MovieDTO>) {
-        movieApi.getNowPlayMovie(MOVIE_API_KEY,language,page).enqueue(callback)
+        movieApi.getNowPlayMovie(MOVIE_API_KEY,language,pageOne).enqueue(callback)
+    }
+    fun getMovieDetailsComingSoon(callback: Callback<MovieDTO>){
+        movieApi.getComingSoon(MOVIE_API_KEY,language,pageOne).enqueue(callback)
+    }
+    fun getMovieDetailTopRated(callback: Callback<MovieDTO>){
+        movieApi.getTopRated(MOVIE_API_KEY,language,pageOne).enqueue(callback)
+    }
+    fun getMovieDetailPopular(callback: Callback<MovieDTO>){
+        movieApi.getPopular(MOVIE_API_KEY,language,pageOne).enqueue(callback)
     }
 
     private fun createOkHttpClient(interceptor: Interceptor): OkHttpClient {

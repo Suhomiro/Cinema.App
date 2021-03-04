@@ -1,4 +1,4 @@
-package arturs.suhomiro.cinemaapp
+package arturs.suhomiro.cinemaapp.repository
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
